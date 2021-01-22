@@ -3,7 +3,7 @@ import { dbService, storageService } from "fbase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
 
-const Nweet = ({ nweetObj, isOwner }) => {
+const Nweet = ({ nweetObj, editPriority }) => {
     const [editing, setEditing] = useState(false);
     const [newNweet, setNewNweet] = useState(nweetObj.text);
     const onDeleteClick = async () => {
@@ -61,6 +61,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
                             href={nweetObj.attachmentUrl}
                             target="_blank"
                             rel="noopener noreferrer"
+                            className="nweet__img"
                         >
                             <img
                                 src={nweetObj.attachmentUrl}
@@ -68,7 +69,7 @@ const Nweet = ({ nweetObj, isOwner }) => {
                             />
                         </a>
                     )}
-                    {isOwner && (
+                    {editPriority && (
                         <div className="nweet__actions">
                             <span onClick={onDeleteClick}>
                                 <FontAwesomeIcon icon={faTrash} />

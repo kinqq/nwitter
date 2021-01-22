@@ -25,7 +25,7 @@ const Home = ({ userObj }) => {
                     <Nweet
                         key={nweet.id}
                         nweetObj={nweet}
-                        isOwner={
+                        editPriority={
                             nweet.creatorId === userObj.uid ||
                             userObj.priority === 1
                         }

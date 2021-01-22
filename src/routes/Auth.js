@@ -10,13 +10,13 @@ import AuthForm from "components/AuthForm";
 
 const Auth = () => {
     const onSocialClick = async (event) => {
+        const {
+            target: { name },
+        } = event;
         let provider =
             name === "google"
                 ? new firebaseInstance.auth.GoogleAuthProvider()
                 : new firebaseInstance.auth.GithubAuthProvider();
-        const {
-            target: { name },
-        } = event;
         await authService.signInWithPopup(provider);
     };
     return (

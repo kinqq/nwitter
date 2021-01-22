@@ -13,9 +13,9 @@ function App() {
 
     useEffect(() => {
         authService.onAuthStateChanged((user) => {
-            const priority = adminList.includes(user.uid) ? 1 : 0;
-            // 1 = admin, 0 = not admin
             if (user) {
+                const priority = adminList.includes(user.uid) ? 1 : 0;
+                // 1 = admin, 0 = not admin
                 setUserObj({
                     displayName: user.displayName,
                     uid: user.uid,
@@ -30,9 +30,12 @@ function App() {
     }, []);
     const refreshUser = () => {
         const user = authService.currentUser;
+        const priority = adminList.includes(user.uid) ? 1 : 0;
+        // 1 = admin, 0 = not admin
         setUserObj({
             displayName: user.displayName,
             uid: user.uid,
+            priority: priority,
             updateProfile: (args) => user.updateProfile(args),
         });
     };
