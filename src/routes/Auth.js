@@ -26,7 +26,7 @@ const Auth = () => {
             <FontAwesomeIcon
                 icon={faTwitter}
                 color={"#04AAFF"}
-                size="3x"
+                size="5x"
                 style={{ marginBottom: 30 }}
             />
             <AuthForm />
@@ -36,14 +36,14 @@ const Auth = () => {
                     name="google"
                     className="authBtn"
                 >
-                    Continue with Google <FontAwesomeIcon icon={faGoogle} />
+                    <FontAwesomeIcon icon={faGoogle} size="2x" />
                 </button>
                 <button
                     onClick={onSocialClick}
                     name="github"
                     className="authBtn"
                 >
-                    Continue with Github <FontAwesomeIcon icon={faGithub} />
+                    <FontAwesomeIcon icon={faGithub} size="2x" />
                 </button>
             </div>
         </div>
