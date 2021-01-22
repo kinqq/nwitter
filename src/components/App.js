@@ -14,7 +14,6 @@ function App() {
                     uid: user.uid,
                     updateProfile: (args) => user.updateProfile(args),
                 });
-                console.log(user.uid);
             } else {
                 setUserObj(null);
             }
