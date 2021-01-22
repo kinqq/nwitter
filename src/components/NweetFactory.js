@@ -23,9 +23,10 @@ const NweetFactory = ({ userObj }) => {
             );
             attachmentUrl = await response.ref.getDownloadURL();
         }
+        const day = new Date();
         const nweetObj = {
             text: nweet,
-            createdAt: Date.now(),
+            createdAt: day.toLocaleString(),
             creatorId: userObj.uid,
             attachmentUrl,
         };

@@ -4,6 +4,7 @@ import Auth from "routes/Auth";
 import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
+import Detail from "routes/Detail";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
     return (
@@ -30,6 +31,9 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                                     userObj={userObj}
                                     refreshUser={refreshUser}
                                 />
+                            </Route>
+                            <Route exact path="/detail/:id">
+                                <Detail />
                             </Route>
                         </div>
                     ) : (

@@ -1,8 +1,12 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faTrash, faPencilAlt } from "@fortawesome/free-solid-svg-icons";
-
+import {
+    faTrash,
+    faPencilAlt,
+    faUser,
+} from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 const Nweet = ({ nweetObj, editPriority }) => {
     const [editing, setEditing] = useState(false);
     const [newNweet, setNewNweet] = useState(nweetObj.text);
@@ -69,16 +73,23 @@ const Nweet = ({ nweetObj, editPriority }) => {
                             />
                         </a>
                     )}
-                    {editPriority && (
-                        <div className="nweet__actions">
-                            <span onClick={onDeleteClick}>
-                                <FontAwesomeIcon icon={faTrash} />
-                            </span>
-                            <span onClick={toggleEditing}>
-                                <FontAwesomeIcon icon={faPencilAlt} />
-                            </span>
-                        </div>
-                    )}
+                    <div className="nweet__actions">
+                        {editPriority && (
+                            <>
+                                <span onClick={onDeleteClick}>
+                                    <FontAwesomeIcon icon={faTrash} />
+                                </span>
+                                <span onClick={toggleEditing}>
+                                    <FontAwesomeIcon icon={faPencilAlt} />
+                                </span>
+                                <Link
+                                    to={`http://localhost:3000/#/detail/${nweetObj.id}`}
+                                >
+                                    <FontAwesomeIcon icon={faUser} />
+                                </Link>
+                            </>
+                        )}
+                    </div>
                 </>
             )}
         </div>

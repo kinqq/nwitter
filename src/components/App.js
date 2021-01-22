@@ -18,6 +18,7 @@ function App() {
                 // 1 = admin, 0 = not admin
                 setUserObj({
                     displayName: user.displayName,
+
                     uid: user.uid,
                     priority: priority,
                     updateProfile: (args) => user.updateProfile(args),
