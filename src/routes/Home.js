@@ -27,8 +27,7 @@ const Home = ({ userObj }) => {
                         nweetObj={nweet}
                         isOwner={
                             nweet.creatorId === userObj.uid ||
-                            String(userObj.uid) ===
-                                "iZ8twQlEqYfTII6mCbP2sqNmmRE3"
+                            userObj.priority === 1
                         }
                     />
                 ))}

@@ -10,15 +10,13 @@ import AuthForm from "components/AuthForm";
 
 const Auth = () => {
     const onSocialClick = async (event) => {
+        let provider =
+            name === "google"
+                ? new firebaseInstance.auth.GoogleAuthProvider()
+                : new firebaseInstance.auth.GithubAuthProvider();
         const {
             target: { name },
         } = event;
-        let provider;
-        if (name === "google") {
-            provider = new firebaseInstance.auth.GoogleAuthProvider();
-        } else if (name === "github") {
-            provider = new firebaseInstance.auth.GithubAuthProvider();
-        }
         await authService.signInWithPopup(provider);
     };
     return (
