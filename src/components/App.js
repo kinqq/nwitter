@@ -28,6 +28,7 @@ function App() {
             }
             setInit(true);
         });
+        // eslint-disable-next-line
     }, []);
     const refreshUser = () => {
         const user = authService.currentUser;

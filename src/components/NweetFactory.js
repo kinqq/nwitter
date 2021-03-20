@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
 import { storageService, dbService } from "fbase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTwitter } from "@fortawesome/free-brands-svg-icons";
 import { faPlus, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 const NweetFactory = ({ userObj }) => {
     const [nweet, setNweet] = useState("");
@@ -58,54 +60,59 @@ const NweetFactory = ({ userObj }) => {
     };
     const onClearAttachment = () => setAttachment("");
     return (
-        <form onSubmit={onSubmit} className="factoryForm">
-            <div className="factoryInput__container">
-                <input
-                    className="factoryInput__input"
-                    value={nweet}
-                    onChange={onChange}
-                    type="text"
-                    placeholder="What's on your mind?"
-                    maxLength={120}
-                />
-                <input
-                    type="submit"
-                    value="&rarr;"
-                    className="factoryInput__arrow"
-                />
-            </div>
-            <label htmlFor="attach-file" className="factoryInput__label">
-                <span>Add photos</span>
-                <FontAwesomeIcon icon={faPlus} />
-            </label>
-            <input
-                id="attach-file"
-                type="file"
-                accept="image/*"
-                onChange={onFileChange}
-                style={{
-                    opacity: 0,
-                }}
-            />
-            {attachment && (
-                <div className="factoryForm__attachment">
-                    <img
-                        src={attachment}
-                        style={{
-                            backgroundImage: attachment,
-                        }}
-                        alt="attachment"
-                    />
-                    <div
-                        className="factoryForm__clear"
-                        onClick={onClearAttachment}
-                    >
-                        <span>Remove</span>
-                        <FontAwesomeIcon icon={faTimes} />
-                    </div>
-                </div>
-            )}
-        </form>
+        // <form onSubmit={onSubmit} className="factoryForm">
+        //     <div className="factoryInput__container">
+        //         <input
+        //             className="factoryInput__input"
+        //             value={nweet}
+        //             onChange={onChange}
+        //             type="text"
+        //             placeholder="What's on your mind?"
+        //             maxLength={120}
+        //         />
+        //         <input
+        //             type="submit"
+        //             value="&rarr;"
+        //             className="factoryInput__arrow"
+        //         />
+        //     </div>
+        //     <label htmlFor="attach-file" className="factoryInput__label">
+        //         <span>Add photos</span>
+        //         <FontAwesomeIcon icon={faPlus} />
+        //     </label>
+        //     <input
+        //         id="attach-file"
+        //         type="file"
+        //         accept="image/*"
+        //         onChange={onFileChange}
+        //         style={{
+        //             opacity: 0,
+        //         }}
+        //     />
+        //     {attachment && (
+        //         <div className="factoryForm__attachment">
+        //             <img
+        //                 src={attachment}
+        //                 style={{
+        //                     backgroundImage: attachment,
+        //                 }}
+        //                 alt="attachment"
+        //             />
+        //             <div
+        //                 className="factoryForm__clear"
+        //                 onClick={onClearAttachment}
+        //             >
+        //                 <span>Remove</span>
+        //                 <FontAwesomeIcon icon={faTimes} />
+        //             </div>
+        //         </div>
+        //     )}
+        // </form>
+        <div className="center">
+            <Link to="/new" className="factoryInput__link">
+                글 쓰기
+            </Link>
+        </div>
     );
 };
 export default NweetFactory;

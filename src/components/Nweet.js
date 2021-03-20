@@ -1,11 +1,5 @@
 import React, { useState } from "react";
 import { dbService, storageService } from "fbase";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-    faTrash,
-    faPencilAlt,
-    faUser,
-} from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 const Nweet = ({ nweetObj, editPriority }) => {
     const [editing, setEditing] = useState(false);
@@ -35,7 +29,10 @@ const Nweet = ({ nweetObj, editPriority }) => {
     };
     return (
         <div className="nweet">
-            {editing ? (
+            <Link to={`/detail/${nweetObj.id}`}>
+                <h4>{nweetObj.title}</h4>
+            </Link>
+            {/* {editing ? (
                 <>
                     <form onSubmit={onSubmit} className="container nweetEdit">
                         <input
@@ -59,21 +56,8 @@ const Nweet = ({ nweetObj, editPriority }) => {
                 </>
             ) : (
                 <>
-                    <h4>{nweetObj.text}</h4>
-                    {nweetObj.attachmentUrl && (
-                        <a
-                            href={nweetObj.attachmentUrl}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="nweet__img"
-                        >
-                            <img
-                                src={nweetObj.attachmentUrl}
-                                alt="attachment"
-                            />
-                        </a>
-                    )}
-                    <div className="nweet__actions">
+                    <h4>{nweetObj.title}</h4>
+                    {<div className="nweet__actions">
                         {editPriority && (
                             <>
                                 <span onClick={onDeleteClick}>
@@ -82,16 +66,14 @@ const Nweet = ({ nweetObj, editPriority }) => {
                                 <span onClick={toggleEditing}>
                                     <FontAwesomeIcon icon={faPencilAlt} />
                                 </span>
-                                <Link
-                                    to={`http://localhost:3000/#/detail/${nweetObj.id}`}
-                                >
+                                <Link to={`/detail/${nweetObj.id}`}>
                                     <FontAwesomeIcon icon={faUser} />
                                 </Link>
                             </>
                         )}
-                    </div>
+                    </div> }
                 </>
-            )}
+            )} */}
         </div>
     );
 };

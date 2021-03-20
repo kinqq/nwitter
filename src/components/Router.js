@@ -5,6 +5,7 @@ import Home from "routes/Home";
 import Profile from "routes/Profile";
 import Navigation from "components/Navigation";
 import Detail from "routes/Detail";
+import Post from "./Post";
 
 const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
     return (
@@ -18,7 +19,7 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                                 maxWidth: 890,
                                 width: "100%",
                                 margin: "0 auto",
-                                marginTop: 80,
+                                marginTop: 50,
                                 display: "flex",
                                 justifyContent: "center",
                             }}
@@ -32,8 +33,11 @@ const AppRouter = ({ refreshUser, isLoggedIn, userObj }) => {
                                     refreshUser={refreshUser}
                                 />
                             </Route>
-                            <Route exact path="/detail/:id">
+                            <Route exact path="/detail/:postId">
                                 <Detail />
+                            </Route>
+                            <Route exact path="/new">
+                                <Post userObj={userObj} />
                             </Route>
                         </div>
                     ) : (
